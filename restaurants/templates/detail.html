@@ -12,13 +12,16 @@
   {% endif %}
   <div class="card-body">
     <h5 class="card-title">{{restaurant.name}}</h5>
-    <p class="card-text">{{restaurant.description|linebreaks}}</p>
+    <p class="card-text">{{restaurant.description}}</p>
     <p class="card-text">Opening Time: {{restaurant.opening_time}}</p>
     <p class="card-text">Closing Time: {{restaurant.closing_time}}</p>
     <p class="card-text">Available items:</p>
 
     {% for x in items%}
         <li class="card-text"> {{x.name}}</li>
+        <li class="card-text"> {{x.description}}</li>
+        <li class="card-text"> {{x.price}}</li>
+
     {% endfor %}
 
     <div class="row text-center">
