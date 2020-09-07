@@ -7,8 +7,6 @@ class Restaurant(models.Model):
     opening_time = models.TimeField()
     closing_time = models.TimeField()
     logo = models.ImageField(upload_to='restaurant_logos', null=True, blank=True)
-
-    # Adding a relationship field
     owner = models.ForeignKey(User, on_delete = models.SET_DEFAULT, default=1 )
 
     def __str__(self):
@@ -20,7 +18,6 @@ class Item(models.Model):
     description = models.TextField()
     price = models.FloatField()
     restaurant = models.ForeignKey(Restaurant, on_delete = models.SET_NULL, blank=True, null=True)
-
 
     def __str__(self):
     	return self.name

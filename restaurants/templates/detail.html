@@ -26,17 +26,22 @@
 
     <div class="row text-center">
         <div class="col-md-6">
-            <a href="{% url 'restaurant-update' restaurant.id %}" class="btn btn-outline-primary btn-block">Update</a>
+            <a href="{% url 'restaurant-update' restaurant.id %}" class="btn btn-outline-primary btn-block">Update
+            </a>
         </div>
         <div class="col-md-6">
-            <a href="{% url 'restaurant-delete' restaurant.id %}" class="btn btn-outline-danger btn-block">Delete</a>
+            <a href="{% url 'restaurant-delete' restaurant.id %}" class="btn btn-outline-danger btn-block">Delete
+            </a>
         </div>
     </div>
     <div class="row text-center">
         <div class="col-md-6">
-            <a href="{% url 'item-create' restaurant.id %}" class="btn btn-outline-primary btn-block">Add items</a>
+            <a href="{% url 'item-create' restaurant.id %}" class="btn btn-outline-primary btn-block">Add items
+            </a>
         </div>
     </div>
   </div>
 </div>
+
+
 {% endblock content %}

@@ -20,6 +20,7 @@ def signup(request):
     }
     return render(request, 'signup.html', context)
 
+
 def signin(request):
     form = SigninForm()
     if request.method == 'POST':
@@ -37,6 +38,7 @@ def signin(request):
         "form":form
     }
     return render(request, 'signin.html', context)
+
 
 def signout(request):
     logout(request)
@@ -56,6 +58,7 @@ def restaurant_detail(request, restaurant_id):
     }
     return render(request, 'detail.html', context)
 
+
 def restaurant_create(request):
     form = RestaurantForm()
     if request.method == "POST":
@@ -70,6 +73,7 @@ def restaurant_create(request):
     }
     return render(request, 'create.html', context)
 
+
 def item_create(request, restaurant_id):
     form = ItemForm()
     restaurant_obj = Restaurant.objects.get(id=restaurant_id)
@@ -78,9 +82,6 @@ def item_create(request, restaurant_id):
         form = ItemForm(request.POST, request.FILES)
         if form.is_valid():
             item = form.save(commit=False)
-            #request.user.Restaurant
-            #item.restaurant = Restaurant.objects.filter(id = request.user.id)
-            #item.restaurant = Restaurant.objects.filter(id = restaurant_id)
             item.restaurant = restaurant_obj
             item = form.save()
             return redirect ('restaurant-detail', restaurant_id)
@@ -89,8 +90,6 @@ def item_create(request, restaurant_id):
         "form" : form,
         "restaurant_obj" : restaurant_obj
     }
-
-
 
     return render(request, 'item_create.html', context)
 
@@ -107,6 +106,7 @@ def restaurant_update(request, restaurant_id):
         "form":form,
     }
     return render(request, 'update.html', context)
+
 
 def restaurant_delete(request, restaurant_id):
     restaurant_obj = Restaurant.objects.get(id=restaurant_id)
